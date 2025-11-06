@@ -1,0 +1,578 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আয়কর ক্যালকুলেটর ২০২৫-২৬ (আপডেট) - ট্যাক্স হিসাব</title>
+    <meta name="description"
+        content="বাংলাদেশের ২০২৫-২৬ অর্থবছরের জন্য আপনার আয়কর নির্ভুলভাবে গণনা করুন। ট্যাক্স হিসাবের মাধ্যমে সহজেই ট্যাক্স হিসাব করুন।">
+    <meta name="keywords"
+        content="আয়কর ক্যালকুলেটর, ট্যাক্স ক্যালকুলেটর ২০২৪-২৫, বাংলাদেশ আয়কর, Income Tax Calculator BD 2024-25, Tax Hishab">
+    <meta name="author" content="ট্যাক্সহিসাব">
+    <link rel="canonical" href="https://www.taxhishab.com/tax-calculator.php">
+
+    <meta property="og:title" content="আয়কর ক্যালকুলেটর ২০২৫-২৬ (আপডেট) - ট্যাক্স হিসাব">
+    <meta property="og:description"
+        content="বাংলাদেশের ২০২৫-২৬ অর্থবছরের জন্য আপনার আয়কর নির্ভুলভাবে গণনা করুন। ট্যাক্স হিসাবের মাধ্যমে সহজেই ট্যাক্স হিসাব করুন।">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.taxhishab.com/tax-calculator.php">
+    <meta property="og:image" content="https://www.taxhishab.com/images/taxhishab_og_image.jpg">
+    <meta property="og:site_name" content="ট্যাক্স হিসাব">
+    <meta property="og:locale" content="bn_BD">
+    <meta property="article:published_time" content="2025-07-14T11:18:09+00:00">
+    <meta property="article:modified_time" content="2025-07-14T11:18:09+00:00">
+    <meta property="article:section" content="Financial Education">
+
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="আয়কর ক্যালকুলেটর ২০২৫-২৬ (আপডেট) - ট্যাক্স হিসাব">
+    <meta name="twitter:description"
+        content="বাংলাদেশের ২০২৫-২৬ অর্থবছরের জন্য আপনার আয়কর নির্ভুলভাবে গণনা করুন। ট্যাক্স হিসাবের মাধ্যমে সহজেই ট্যাক্স হিসাব করুন।">
+    <meta name="twitter:image" content="https://www.taxhishab.com/images/taxhishab_twitter_image.jpg">
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M7KR3GHD');</script>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            /* padding-top: 80px; */
+            /* Added padding to prevent content from being hidden by sticky header */
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1c3172;
+        }
+
+        .dropdown .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            /* Higher z-index for dropdowns */
+            min-width: 240px;
+            /* Wider dropdowns */
+            border-radius: 0.375rem;
+            /* rounded-md */
+            padding-top: 0.5rem;
+            /* py-2 */
+            padding-bottom: 0.5rem;
+            /* py-2 */
+        }
+
+        .dropdown-menu a {
+            color: #374151;
+            /* gray-700 */
+            padding: 0.75rem 1.25rem;
+            /* py-3 px-5 */
+            text-decoration: none;
+            display: block;
+            white-space: normal;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #eef2ff;
+            /* indigo-100 */
+            color: #1e3a8a;
+            /* TaxHishab Blue */
+        }
+
+        /* Mobile menu active state */
+        #mobile-menu-main.active {
+            display: block;
+        }
+
+        .collapsible-menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .collapsible-menu-content.expanded {
+            max-height: 500px;
+            /* Adjust as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8" style="height: auto !important;"> -->
+    <main class="" style="height: auto !important;">
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-blue-700 mb-6 md:mb-10">
+            Bangladesh Income Tax Calculator 2025-26
+        </h1>
+
+        <div id="contentSection" style="height: auto !important;">
+
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-gray-200 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 h-screen"
+                style="height: auto !important;">
+                <div class="overflow-y-auto max-h-[calc(100vh-9.5rem)]" id="tax-form">
+                    <form id="taxFormEn" class="space-y-10">
+
+                        <fieldset class="p-6 border border-blue-200 rounded-lg bg-blue-50/30 shadow-sm">
+                            <legend
+                                class="text-xl md:text-2xl font-semibold text-blue-700 mb-6 text-center px-4 py-2 bg-white rounded-md shadow">
+                                Income Details (Fiscal Year)</legend>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                <div>
+                                    <label for="basicSalaryEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Basic
+                                        Salary:</label>
+                                    <input type="number" id="basicSalaryEn" name="basicSalary" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Your basic salary before any
+                                        deductions.</span>
+                                </div>
+                                <div>
+                                    <label for="houseRentEn" class="block text-sm font-medium text-gray-800 mb-1">House
+                                        Rent
+                                        Allowance:</label>
+                                    <input type="number" id="houseRentEn" name="houseRent" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Allowance for house rent. (Enter "0"
+                                        if
+                                        not
+                                        applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="conveyanceEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Conveyance
+                                        Allowance:</label>
+                                    <input type="number" id="conveyanceEn" name="conveyance" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Allowance for commuting. (Enter "0"
+                                        if
+                                        not
+                                        applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="medicalEn" class="block text-sm font-medium text-gray-800 mb-1">Medical
+                                        Allowance:</label>
+                                    <input type="number" id="medicalEn" name="medical" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Allowance for medical expenses.
+                                        (Enter
+                                        "0" if
+                                        not applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="bonusesEn" class="block text-sm font-medium text-gray-800 mb-1">Bonuses
+                                        (Performance, Yearly, Festival):</label>
+                                    <input type="number" id="bonusesEn" name="bonuses" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Include any bonuses. (Enter "0" if
+                                        not
+                                        applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="overtimeEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Overtime
+                                        Allowance:</label>
+                                    <input type="number" id="overtimeEn" name="overtime" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Payment for overtime work. (Enter "0"
+                                        if
+                                        not
+                                        applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="otherIncomeEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Other
+                                        Income
+                                        (e.g., Leave Encashment):</label>
+                                    <input type="number" id="otherIncomeEn" name="otherIncome" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Other taxable income. (Enter "0" if
+                                        not
+                                        applicable)</span>
+                                </div>
+                                <div>
+                                    <label for="advanceTaxEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Advance
+                                        Income Tax (AIT):</label>
+                                    <input type="number" id="advanceTaxEn" name="advanceTax" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Tax already paid in advance. (Enter
+                                        "0"
+                                        if
+                                        not applicable)</span>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="p-6 border border-green-200 rounded-lg bg-green-50/30 shadow-sm">
+                            <legend
+                                class="text-xl md:text-2xl font-semibold text-green-700 mb-6 text-center px-4 py-2 bg-white rounded-md shadow">
+                                Investments</legend>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                                <div>
+                                    <label for="shanchayPatraEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Shanchay
+                                        Patra:</label>
+                                    <input type="number" id="shanchayPatraEn" name="shanchayPatra" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Max rebate eligible: BDT 500,000.
+                                        (Enter
+                                        "0"
+                                        if none)</span>
+                                </div>
+                                <div>
+                                    <label for="dpsEn" class="block text-sm font-medium text-gray-800 mb-1">DPS (Deposit
+                                        Pension
+                                        Scheme):</label>
+                                    <input type="number" id="dpsEn" name="dps" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Max rebate eligible: BDT 120,000.
+                                        (Enter
+                                        "0"
+                                        if none)</span>
+                                </div>
+                                <div>
+                                    <label for="mutualFundEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Mutual
+                                        Fund:</label>
+                                    <input type="number" id="mutualFundEn" name="mutualFund" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Full amount eligible for tax rebate.
+                                        (Enter
+                                        "0" if none)</span>
+                                </div>
+                                <div>
+                                    <label for="treasuryBondEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Treasury
+                                        Bond:</label>
+                                    <input type="number" id="treasuryBondEn" name="treasuryBond" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Full amount eligible for tax rebate.
+                                        (Enter
+                                        "0" if none)</span>
+                                </div>
+                                <div>
+                                    <label for="stockEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Stock:</label>
+                                    <input type="number" id="stockEn" name="stock" required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Full amount eligible for tax rebate.
+                                        (Enter
+                                        "0" if none)</span>
+                                </div>
+                                <div>
+                                    <label for="providentFundEmployeeEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Provident Fund (Employee's
+                                        Contribution):</label>
+                                    <input type="number" id="providentFundEmployeeEn" name="providentFundEmployee"
+                                        required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Full amount eligible. (Enter "0" if
+                                        none)</span>
+                                </div>
+                                <div>
+                                    <label for="providentFundEmployerEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Provident Fund (Employer's
+                                        Contribution):</label>
+                                    <input type="number" id="providentFundEmployerEn" name="providentFundEmployer"
+                                        required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Full amount eligible. (Enter "0" if
+                                        none)</span>
+                                </div>
+                                <div>
+                                    <label for="providentFundInterestEn"
+                                        class="block text-sm font-medium text-gray-800 mb-1">Provident Fund (Net
+                                        Interest,
+                                        after
+                                        27.5% tax):</label>
+                                    <input type="number" id="providentFundInterestEn" name="providentFundInterest"
+                                        required="" value=""
+                                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm">
+                                    <span class="text-xs text-gray-500 mt-1 block">Net interest after tax. (Enter "0" if
+                                        none)</span>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="p-6 border border-indigo-200 rounded-lg bg-indigo-50/30 shadow-sm">
+                            <legend
+                                class="text-xl md:text-2xl font-semibold text-indigo-700 mb-4 text-center px-4 py-2 bg-white rounded-md shadow">
+                                Category and Tax-Free Slab</legend>
+                            <p class="text-sm text-gray-700 mb-1 text-center">Select Your Category:</p>
+                            <p class="text-xs text-gray-500 mb-5 text-center">Choose your category to determine your
+                                applicable
+                                tax-free slab.</p>
+                            <div class="space-y-3">
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="general" required="" checked=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">General Man - BDT 350,000</span>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="woman" required=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">Woman - BDT 400,000</span>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="senior" required=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">65 years or older citizen - BDT
+                                        400,000</span>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="disabled" required=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">Physical or Mental unfit person - BDT
+                                        475,000</span>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="freedomFighter" required=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">Gazetted Freedom Fighter - BDT
+                                        500,000</span>
+                                </label>
+                                <label
+                                    class="flex items-center p-3 border border-gray-200 rounded-md hover:bg-indigo-100 transition-colors cursor-pointer">
+                                    <input type="radio" name="category" value="thirdGender" required=""
+                                        class="form-radio h-5 w-5 text-indigo-600 focus:ring-indigo-500">
+                                    <span class="ml-3 text-sm text-gray-800">Third Gender - BDT 475,000</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="p-6 border border-purple-200 rounded-lg bg-purple-50/30 shadow-sm">
+                            <legend
+                                class="text-xl md:text-2xl font-semibold text-purple-700 mb-4 text-center px-4 py-2 bg-white rounded-md shadow">
+                                Children Adjustment</legend>
+                            <div>
+                                <label for="childrenEn" class="block text-sm font-medium text-gray-800 mb-1">Parents of
+                                    Physical
+                                    or Mental unfit person will add 50,000 BDT per child</label>
+                                <input type="number" id="childrenEn" name="children" min="0" value="0" required=""
+                                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 text-sm">
+                                <span class="text-xs text-gray-500 mt-1 block">Enter the number of children if
+                                    applicable.</span>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="live-tax-results-en"
+                    class="mt-5 p-6 md:p-8 bg-gray-100 rounded-xl shadow-md border border-gray-300 text-gray-800 overflow-y-auto max-h-[calc(100vh-9.5rem)]">
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-700 mb-8 text-center">Live Results</h2>
+                    <p class="text-center text-gray-600">Results will appear here as you fill the form.
+
+                    </p>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const formEn = document.getElementById('taxFormEn');
+                    const liveResultsDivEn = document.getElementById('live-tax-results-en');
+
+                    if (formEn) { // Check if the form exists on the page
+                        const inputFieldsEn = formEn.querySelectorAll('input[type="number"], input[type="radio"]');
+                        inputFieldsEn.forEach(field => {
+                            field.addEventListener('input', calculateTaxLiveEn);
+                            if (field.type === 'radio') {
+                                field.addEventListener('change', calculateTaxLiveEn);
+                            }
+                        });
+                        // Initial calculation if form has pre-filled values (from PHP after submission)
+                        // calculateTaxLiveEn(); // You can uncomment this if you want JS to calculate on load based on PHP values
+                    }
+
+                    function getSelectedRadioValueEn(name) {
+                        const radios = formEn.querySelectorAll(`input[name="${name}"]:checked`); // Scope to the form
+                        if (radios.length > 0) {
+                            return radios[0].value;
+                        }
+                        return 'general'; // Default
+                    }
+
+                    function calculateTaxLiveEn() {
+                        if (!formEn || !liveResultsDivEn) return; // Ensure elements exist
+
+                        const basicSalary = parseFloat(document.getElementById('basicSalaryEn').value) || 0;
+                        const houseRent = parseFloat(document.getElementById('houseRentEn').value) || 0;
+                        const conveyance = parseFloat(document.getElementById('conveyanceEn').value) || 0;
+                        const medical = parseFloat(document.getElementById('medicalEn').value) || 0;
+                        const bonuses = parseFloat(document.getElementById('bonusesEn').value) || 0;
+                        const overtime = parseFloat(document.getElementById('overtimeEn').value) || 0;
+                        const otherIncome = parseFloat(document.getElementById('otherIncomeEn').value) || 0;
+                        const advanceTax = parseFloat(document.getElementById('advanceTaxEn').value) || 0;
+
+                        const shanchayPatra = parseFloat(document.getElementById('shanchayPatraEn').value) || 0;
+                        const dps = parseFloat(document.getElementById('dpsEn').value) || 0;
+                        const mutualFund = parseFloat(document.getElementById('mutualFundEn').value) || 0;
+                        const treasuryBond = parseFloat(document.getElementById('treasuryBondEn').value) || 0;
+                        const stock = parseFloat(document.getElementById('stockEn').value) || 0;
+                        const providentFundEmployee = parseFloat(document.getElementById('providentFundEmployeeEn').value) || 0;
+                        const providentFundEmployer = parseFloat(document.getElementById('providentFundEmployerEn').value) || 0;
+                        const providentFundInterest = parseFloat(document.getElementById('providentFundInterestEn').value) || 0;
+
+                        const category = getSelectedRadioValueEn('category');
+                        const children = parseInt(document.getElementById('childrenEn').value) || 0;
+
+                        const totalEarnings = basicSalary + houseRent + conveyance + medical + bonuses + overtime + otherIncome;
+                        const taxfreeincome = Math.min(totalEarnings / 3, 450000);
+
+                        let categoryTaxFreeLimit = 350000;
+                        switch (category) {
+                            case "woman": case "senior": categoryTaxFreeLimit = 400000; break;
+                            case "disabled": case "thirdGender": categoryTaxFreeLimit = 475000; break;
+                            case "freedomFighter": categoryTaxFreeLimit = 500000; break;
+                        }
+                        categoryTaxFreeLimit += children * 50000;
+
+                        const taxableIncome = Math.max(0, totalEarnings - taxfreeincome);
+                        const incomeForSlabCalculation = Math.max(0, taxableIncome - categoryTaxFreeLimit);
+
+                        let tax = 0;
+                        let remainingTaxable = incomeForSlabCalculation;
+
+                        if (remainingTaxable > 0) { const slab = Math.min(remainingTaxable, 100000); tax += slab * 0.05; remainingTaxable -= slab; }
+                        if (remainingTaxable > 0) { const slab = Math.min(remainingTaxable, 400000); tax += slab * 0.10; remainingTaxable -= slab; }
+                        if (remainingTaxable > 0) { const slab = Math.min(remainingTaxable, 500000); tax += slab * 0.15; remainingTaxable -= slab; }
+                        if (remainingTaxable > 0) { const slab = Math.min(remainingTaxable, 500000); tax += slab * 0.20; remainingTaxable -= slab; }
+                        if (remainingTaxable > 0) { const slab = Math.min(remainingTaxable, 2000000); tax += slab * 0.25; remainingTaxable -= slab; }
+                        if (remainingTaxable > 0) { tax += remainingTaxable * 0.30; }
+
+
+                        const totalInvestment = Math.min(shanchayPatra, 500000) + Math.min(dps, 120000) + mutualFund + treasuryBond + stock + providentFundEmployee + providentFundEmployer + providentFundInterest;
+                        const rebate = Math.min(totalInvestment * 0.15, taxableIncome * 0.03, 1000000);
+
+                        const maxRebate = Math.min(taxableIncome * 0.03, 1000000);
+                        const requiredInvestmentForMaxRebate = maxRebate / 0.15;
+                        const requiredInvestment = requiredInvestmentForMaxRebate - totalInvestment;
+
+                        let netTax = Math.max(0, tax - rebate - advanceTax);
+
+                        const minimumTax = 3000;
+                        if (taxableIncome > categoryTaxFreeLimit) {
+                            netTax = Math.max(netTax, minimumTax);
+                        } else {
+                            netTax = 0;
+                        }
+
+                        liveResultsDivEn.innerHTML = `
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-700 mb-8 text-center">Live Results</h2>
+            <div class="space-y-3 text-sm md:text-base">
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Total Earnings:</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${totalEarnings.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Tax-Free Income (General Exemption):</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${taxfreeincome.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Net Taxable Income (After General Exemption):</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${taxableIncome.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">0% Tax Limit (Category Based):</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${categoryTaxFreeLimit.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Investment need for Maximum Rebate:</span>
+                    <span class="font-semibold text-green-600 text-right">
+                    BDT ${requiredInvestmentForMaxRebate.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Eligible Investment for Rebate:</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${totalInvestment.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Investment reamin for Maximum Rebate:</span>
+                    <span class="font-semibold text-green-600 text-right">
+                    BDT ${requiredInvestment.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Calculated Tax Rebate:</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${rebate.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-2 border-b border-gray-200">
+                    <span class="font-medium text-gray-600">Advance Income Tax Paid (AIT):</span>
+                    <span class="font-semibold text-blue-600 text-right">
+                    BDT ${advanceTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-[1fr_180px] items-center py-3 mt-4 border-t-2 border-blue-500">
+                    <h3 class="text-lg md:text-xl font-bold text-red-600">Net Tax Payable:</h3>
+                    <span class="text-lg md:text-xl font-bold text-red-600 text-right">
+                    BDT ${netTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                </div>
+                </div>
+`;
+                    }
+                });
+            </script>
+
+        </div>
+    </main>
+</body>
+
+</html>
