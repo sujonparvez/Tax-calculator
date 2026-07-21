@@ -164,6 +164,11 @@ function calculateTaxLiveEn() {
         calculatedRebate = 0;
     }
 
+    // Investment needed to reach the maximum possible rebate for this income
+    const maxRebate = Math.min(taxableIncome * 0.03, 1000000);
+    const requiredInvestmentForMaxRebate = maxRebate / TaxRules2025.rebate.rate;
+    const requiredInvestment = Math.max(0, requiredInvestmentForMaxRebate - totalEligibleInvestment);
+
     // ── MINIMUM TAX ─────────────────────────────────────────────────
 
     let taxPostRebate = Math.max(0, baseTaxBeforeRebate - calculatedRebate);
@@ -208,6 +213,9 @@ function calculateTaxLiveEn() {
 
     setEl("sum-taxable",   money(taxableIncome));
     setEl("sum-gross-tax", money(baseTaxBeforeRebate));
+    setEl("sum-invest-needed",  money(requiredInvestmentForMaxRebate));
+    setEl("sum-invest-eligible", money(totalEligibleInvestment));
+    setEl("sum-invest-remain",  money(requiredInvestment));
     setEl("sum-rebate",    "-" + money(calculatedRebate));
     setEl("sum-final",     money(finalNetPayableTax));
     setEl("mob-final",     money(finalNetPayableTax));
