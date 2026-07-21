@@ -1,0 +1,357 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আয়কর ক্যালকুলেটর ২০২৫-২৬ (নতুন নিয়ম) - ট্যাক্স হিসাব</title>
+    <meta name="description"
+        content="বাংলাদেশের ২০২৫-২৬ অর্থবছরের নতুন এনবিআর নিয়ম অনুযায়ী আপনার আয়কর গণনা করুন। সারচার্জ, রিবেট ও ন্যূনতম করসহ সম্পূর্ণ হিসাব।">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+        }
+
+        .slab-bar {
+            display: flex;
+            width: 100%;
+            height: 1.5rem;
+            border-radius: 0.375rem;
+            overflow: hidden;
+            background: #e5e7eb;
+        }
+
+        .slab-segment:first-child {
+            border-top-left-radius: 0.375rem;
+            border-bottom-left-radius: 0.375rem;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .accordion-content.hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50">
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Rules switch -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <a href="index.html"
+                class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-slate-600 border border-slate-300 hover:bg-slate-100 transition-colors">
+                Old Calculation Rules (FY 2024-25)
+            </a>
+            <span class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-600 text-white shadow">
+                New Calculation Rules (FY 2025-26)
+            </span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-blue-700 mb-2">
+            Bangladesh Income Tax Calculator 2025-26
+        </h1>
+        <p class="text-center text-slate-500 mb-8 text-sm">Updated NBR rules — ৳3,75,000 threshold, wealth surcharge &
+            filer-type minimum tax.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6">
+
+            <!-- ── FORM (accordion steps) ─────────────────────────────── -->
+            <div class="space-y-4">
+
+                <!-- Step navigation -->
+                <div class="flex items-center justify-between text-xs bg-white rounded-lg border border-slate-200 p-3">
+                    <button type="button" id="step-node-1" onclick="switchStep(1)"
+                        class="text-blue-600 flex items-center space-x-1 font-bold">
+                        <span class="h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center text-[10px] text-blue-700 font-bold border border-blue-200">1</span>
+                        <span>Income</span>
+                    </button>
+                    <button type="button" id="step-node-2" onclick="switchStep(2)"
+                        class="text-slate-400 flex items-center space-x-1 font-medium">
+                        <span class="h-5 w-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-400">2</span>
+                        <span>Investments</span>
+                    </button>
+                    <button type="button" id="step-node-3" onclick="switchStep(3)"
+                        class="text-slate-400 flex items-center space-x-1 font-medium">
+                        <span class="h-5 w-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-400">3</span>
+                        <span>Assets</span>
+                    </button>
+                    <button type="button" id="step-node-4" onclick="switchStep(4)"
+                        class="text-slate-400 flex items-center space-x-1 font-medium">
+                        <span class="h-5 w-5 rounded-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-400">4</span>
+                        <span>Profile</span>
+                    </button>
+                </div>
+
+                <!-- Step 1: Income -->
+                <div id="acc-card-1" class="bg-white rounded-xl shadow-sm border border-slate-200 active">
+                    <button type="button" onclick="toggleAccordion(1)"
+                        class="w-full text-left px-6 py-4 font-semibold text-blue-700 flex justify-between items-center">
+                        <span>1. Income Details (Fiscal Year)</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <label for="basicSalary" class="block text-sm font-medium text-gray-800 mb-1">Basic Salary</label>
+                                <input type="number" id="basicSalary" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="houseRent" class="block text-sm font-medium text-gray-800 mb-1">House Rent Allowance</label>
+                                <input type="number" id="houseRent" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="conveyance" class="block text-sm font-medium text-gray-800 mb-1">Conveyance Allowance</label>
+                                <input type="number" id="conveyance" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="medical" class="block text-sm font-medium text-gray-800 mb-1">Medical Allowance</label>
+                                <input type="number" id="medical" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="bonuses" class="block text-sm font-medium text-gray-800 mb-1">Bonuses (Performance, Yearly, Festival)</label>
+                                <input type="number" id="bonuses" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="otherIncome" class="block text-sm font-medium text-gray-800 mb-1">Other Income (e.g. Leave Encashment)</label>
+                                <input type="number" id="otherIncome" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="advanceTax" class="block text-sm font-medium text-gray-800 mb-1">Advance Income Tax (AIT)</label>
+                                <input type="number" id="advanceTax" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Investments -->
+                <div id="acc-card-2" class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <button type="button" onclick="toggleAccordion(2)"
+                        class="w-full text-left px-6 py-4 font-semibold text-green-700 flex justify-between items-center">
+                        <span>2. Investments (Rebate Eligible)</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <label for="shanchayPatra" class="block text-sm font-medium text-gray-800 mb-1">Shanchay Patra</label>
+                                <input type="number" id="shanchayPatra" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-green-500 focus:border-green-500">
+                                <span class="text-xs text-gray-500 mt-1 block">Max eligible: BDT 500,000.</span>
+                            </div>
+                            <div>
+                                <label for="dps" class="block text-sm font-medium text-gray-800 mb-1">DPS (Deposit Pension Scheme)</label>
+                                <input type="number" id="dps" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-green-500 focus:border-green-500">
+                                <span class="text-xs text-gray-500 mt-1 block">Max eligible: BDT 120,000.</span>
+                            </div>
+                            <div>
+                                <label for="stockInvestment" class="block text-sm font-medium text-gray-800 mb-1">Stock / Mutual Fund / Bonds</label>
+                                <input type="number" id="stockInvestment" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div>
+                                <label for="providentFund" class="block text-sm font-medium text-gray-800 mb-1">Provident Fund (Total Contribution)</label>
+                                <input type="number" id="providentFund" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-green-500 focus:border-green-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Assets & Wealth -->
+                <div id="acc-card-3" class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <button type="button" onclick="toggleAccordion(3)"
+                        class="w-full text-left px-6 py-4 font-semibold text-amber-700 flex justify-between items-center">
+                        <span>3. Assets &amp; Wealth (Surcharge)</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                            <div class="md:col-span-2">
+                                <label for="netWealth" class="block text-sm font-medium text-gray-800 mb-1">Net Wealth (Total Assets)</label>
+                                <input type="number" id="netWealth" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-amber-500 focus:border-amber-500">
+                                <span class="text-xs text-gray-500 mt-1 block">Surcharge applies above BDT 4 crore.</span>
+                            </div>
+                            <div>
+                                <label for="hasMultipleCars" class="block text-sm font-medium text-gray-800 mb-1">Own more than one car?</label>
+                                <select id="hasMultipleCars"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-amber-500 focus:border-amber-500">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="largeProperty" class="block text-sm font-medium text-gray-800 mb-1">Own house property over 8,000 sq. ft?</label>
+                                <select id="largeProperty"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-amber-500 focus:border-amber-500">
+                                    <option value="no">No</option>
+                                    <option value="yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Profile -->
+                <div id="acc-card-4" class="bg-white rounded-xl shadow-sm border border-slate-200">
+                    <button type="button" onclick="toggleAccordion(4)"
+                        class="w-full text-left px-6 py-4 font-semibold text-indigo-700 flex justify-between items-center">
+                        <span>4. Profile &amp; Category</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                            <div class="md:col-span-2">
+                                <p class="text-sm font-medium text-gray-800 mb-2">Category (tax-free threshold)</p>
+                                <div class="space-y-2">
+                                    <label class="flex items-center p-2 border border-gray-200 rounded-md hover:bg-indigo-50 cursor-pointer">
+                                        <input type="radio" name="category" value="general" checked
+                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="ml-3 text-sm text-gray-800">General - BDT 375,000</span>
+                                    </label>
+                                    <label class="flex items-center p-2 border border-gray-200 rounded-md hover:bg-indigo-50 cursor-pointer">
+                                        <input type="radio" name="category" value="woman_senior"
+                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="ml-3 text-sm text-gray-800">Woman / 65+ years - BDT 425,000</span>
+                                    </label>
+                                    <label class="flex items-center p-2 border border-gray-200 rounded-md hover:bg-indigo-50 cursor-pointer">
+                                        <input type="radio" name="category" value="disabled_tg"
+                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="ml-3 text-sm text-gray-800">Disabled / Third Gender - BDT 500,000</span>
+                                    </label>
+                                    <label class="flex items-center p-2 border border-gray-200 rounded-md hover:bg-indigo-50 cursor-pointer">
+                                        <input type="radio" name="category" value="freedom_fighter"
+                                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
+                                        <span class="ml-3 text-sm text-gray-800">Freedom Fighter / July Warrior - BDT 525,000</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="taxpayerStatus" class="block text-sm font-medium text-gray-800 mb-1">Taxpayer Status</label>
+                                <select id="taxpayerStatus"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="existing">Existing filer (min. tax BDT 5,000)</option>
+                                    <option value="new">First-time filer (min. tax BDT 1,000)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="filedOnTime" class="block text-sm font-medium text-gray-800 mb-1">Return filed on time?</label>
+                                <select id="filedOnTime"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                    <option value="yes">Yes (rebate eligible)</option>
+                                    <option value="no">No (rebate disabled)</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="children" class="block text-sm font-medium text-gray-800 mb-1">Number of disabled dependent children</label>
+                                <input type="number" id="children" min="0" value="0"
+                                    class="block w-full p-3 border border-gray-300 rounded-md text-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                <span id="children-hint" class="text-xs text-green-600 mt-1 block hidden"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" onclick="scrollInputs()"
+                        class="text-xs text-blue-600 hover:underline">Back to top ↑</button>
+                </div>
+            </div>
+
+            <!-- ── RESULTS ─────────────────────────────────────────────── -->
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 lg:sticky lg:top-4">
+                    <h2 class="text-xl font-bold text-blue-700 mb-6 text-center">Live Results</h2>
+
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-slate-100 pb-2">
+                            <span class="text-slate-600">Net Taxable Income</span>
+                            <span id="sum-taxable" class="font-semibold text-blue-600">৳0.00</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2">
+                            <span class="text-slate-600">Gross Tax (before rebate)</span>
+                            <span id="sum-gross-tax" class="font-semibold text-blue-600">৳0.00</span>
+                        </div>
+                        <div class="flex justify-between border-b border-slate-100 pb-2">
+                            <span class="text-slate-600">Investment Rebate</span>
+                            <span id="sum-rebate" class="font-semibold text-green-600">-৳0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-3 mt-2 border-t-2 border-blue-500">
+                            <span class="text-lg font-bold text-red-600">Net Tax Payable</span>
+                            <span id="sum-final" class="text-lg font-bold text-red-600">৳0.00</span>
+                        </div>
+                    </div>
+
+                    <div id="rebate-disabled-warning"
+                        class="hidden mt-4 text-xs text-red-700 bg-red-50 border border-red-200 rounded-md p-3">
+                        ⚠️ Rebate is disabled because the return was not filed on time.
+                    </div>
+
+                    <!-- Slab bar -->
+                    <div class="mt-6">
+                        <p class="text-xs font-medium text-slate-600 mb-2">Income distribution across slabs</p>
+                        <div id="slab-bar-stack" class="slab-bar"></div>
+                    </div>
+
+                    <!-- Wealth gauge -->
+                    <div class="mt-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs font-medium text-slate-600">Wealth surcharge status</p>
+                            <span id="gauge-badge"
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-800">Surcharge Free</span>
+                        </div>
+                        <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="gauge-bar" class="bg-blue-600 h-full transition-all duration-300" style="width:0%"></div>
+                        </div>
+                        <p id="gauge-label-text" class="text-xs text-slate-500 mt-2">
+                            Great! Your reported net wealth is under the ৳4 crore surcharge threshold.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Explanation -->
+                <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                    <h3 class="text-sm font-bold text-slate-700 mb-3">How this was calculated</h3>
+                    <div id="explanation-box" class="text-xs text-slate-600 space-y-2">
+                        <p class="italic text-slate-500 text-center">Awaiting entry profiles to render logs...</p>
+                    </div>
+                </div>
+
+                <!-- Mobile sticky final -->
+                <div class="lg:hidden fixed bottom-0 left-0 right-0 bg-blue-700 text-white px-6 py-3 flex justify-between items-center shadow-lg z-50">
+                    <span class="font-medium">Net Tax Payable</span>
+                    <span id="mob-final" class="font-bold text-lg">৳0.00</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="taxRules2025.js"></script>
+    <script src="calculator-25-26.js"></script>
+</body>
+
+</html>
